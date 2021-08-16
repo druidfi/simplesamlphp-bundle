@@ -1,0 +1,28 @@
+{
+  "name": "druidfi/simplesamlphp-bundle",
+  "type": "symfony-bundle",
+  "description": "Provides a tight integration of SimpleSAMLphp into the Symfony full-stack framework",
+  "keywords": ["simplesamlphp", "symfony", "login", "sso"],
+  "homepage": "https://symfony.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marko Korhonen",
+      "email": "marko.korhonen@druid.fi"
+    }
+  ],
+  "require": {
+    "php": "^7.4 <8.0",
+    "composer-runtime-api": "^2",
+    "predis/predis": "^1.1",
+    "simplesamlphp/simplesamlphp": "^1.19",
+    "symfony/security-bundle": "^5.3"
+  },
+  "autoload": {
+    "psr-4": { "Druidfi\\SimpleSamlPhpBundle\\": "src/" },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "minimum-stability": "stable"
+}

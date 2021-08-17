@@ -14,15 +14,17 @@ Copy following files to your Symfony app:
 
 - `vendor/druidfi/simplesamlphp-bundle/Resources/config/packages/security.yaml` > `config/packages/security.yaml`
 
-Add routes:
+Add routes to `config/routes.yaml`:
 
 ```
+###> druidfi/simplesamlphp-bundle ###
 druidfi_simplesamlphp_login:
   path: /login
   controller: Druidfi\SimpleSamlPhpBundle\Controller\LoginController::login
 druidfi_simplesamlphp_logout:
   path: /logout
   controller: Druidfi\SimpleSamlPhpBundle\Controller\LoginController::logout
+###< druidfi/simplesamlphp-bundle ###
 ```
 
 ## License

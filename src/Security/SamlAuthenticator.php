@@ -20,6 +20,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPasspor
 class SamlAuthenticator extends AbstractAuthenticator
 {
     const DEFAULT_ROUTE = 'index';
+    const LOGIN_ROUTE = 'druidfi_simplesamlphp_login';
 
     private LoginService $loginService;
     private UrlGeneratorInterface $router;
@@ -38,7 +39,7 @@ class SamlAuthenticator extends AbstractAuthenticator
             return false;
         }
 
-        return 'login' === $request->attributes->get('_route');
+        return self::LOGIN_ROUTE === $request->attributes->get('_route');
     }
 
     public function authenticate(Request $request): PassportInterface
@@ -52,7 +53,7 @@ class SamlAuthenticator extends AbstractAuthenticator
             $to = $request->query->get('to', self::DEFAULT_ROUTE);
 
             // Redirect first back to login route
-            $returnTo = $this->router->generate('login', ['to' => $to]);
+            $returnTo = $this->router->generate(self::LOGIN_ROUTE, ['to' => $to]);
             $errorUrl = $this->router->generate(self::DEFAULT_ROUTE, ['error' => 1]);
             $user_data = $this->loginService->requireAuth($returnTo, $errorUrl);
 

@@ -14,7 +14,7 @@ security:
             custom_authenticators:
                 - Druidfi\SimpleSamlPhpBundle\Security\SamlAuthenticator
             logout:
-                path: logout
+                path: druidfi_simplesamlphp_logout
                 target: /
 
     # Easy way to control access for large sections of your site

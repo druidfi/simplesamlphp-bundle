@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Druidfi\SimpleSamlPhpBundle\Service\LoginService: ~
+  Druidfi\SimpleSamlPhpBundle\Security\SamlAuthenticator:
+    arguments:
+      $loginService: '@Druidfi\SimpleSamlPhpBundle\Service\LoginService'
+      $router: '@router'
+      $security: '@security.helper'
+  Druidfi\SimpleSamlPhpBundle\Security\UserProvider: ~
+
+  Druidfi\SimpleSamlPhpBundle\Controller\:
+    resource: '../../Controller'
+    tags: ['controller.service_arguments']
